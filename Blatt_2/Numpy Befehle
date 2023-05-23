@@ -1,0 +1,138 @@
+Numpy 
+bekannte Befehle
+
+cvalues=[4,3,6,5]       #Macht liste
+C=np.array(cvalues)     #liste wird zu Array
+
+arange(start,stop,step,dtype=None)
+a= np.arange(1,10,0.8, int)
+
+linspace(start,stop,num=50,endpoint=True,retstep=False) #Macht wertetabelle
+samples, spacing =np.linspace(1,10,retstep=True)        # gibt Abstand an
+
+
+
+>>> F =no.array([1,2,3,5,8,13,21])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'no' is not defined
+>>> F =np.array([1,2,3,5,8,13,21])
+>>> V =np.array([3.4,6.9,99.8,12.8])
+>>> print(F.dtype)
+int32
+>>> print(V.dtype)
+float64
+>>> print(np.ndim(F))
+1
+>>> print(np.ndim(V))
+1
+
+#Mehrdimensionale Arrays
+>>> F =np.array([1,2,3,5,8,13,21])
+>>> V =np.array([3.4,6.9,99.8,12.8])
+>>> print(F.dtype)
+int32
+>>> print(V.dtype)
+float64
+>>> print(np.ndim(F))
+1
+>>> print(np.ndim(V))
+1
+
+
+#Shape Befehl 
+>>> x = np.array([ [67,63,87],
+...                [87,43,56],
+...                [77,69,59],
+...                [65,63,87],
+...                [12,34,56],
+...                [78,89,98],
+...                [43,43,43]])
+>>> print(np.shape(x))
+(7, 3)
+>>> print(x.shape)
+(7, 3)
+
+#Zugriff bei Mehrdimensionalen Arrays
+
+[[67 63 87 87 43 56 77]
+ [69 59 65 63 87 12 34]
+ [56 78 89 98 43 43 43]]
+>>> print(x[0][3])
+87
+
+
+# Slicing von Mehrdimensionalen Arrays
+print(A[start:stop:step])
+>>> A=np.array([ 
+... [11,12,13,14,15],
+... [21,22,23,24,25],
+... [31,32,33,34,35],
+... [41,42,43,44,45],
+... [51,52,53,54,55]])
+>>> print(A[:3,2:])
+[[13 14 15]
+ [23 24 25]
+ [33 34 35]]
+
+
+# reshape Funktion  (umwandeln von Arrays in mehr dimensionen)
+>>> X= np.arange(28).reshape(4,7)
+>>> print(X)
+[[ 0  1  2  3  4  5  6]
+ [ 7  8  9 10 11 12 13]
+ [14 15 16 17 18 19 20]
+ [21 22 23 24 25 26 27]]
+
+# numpy.copy (obj,order='K')
+>>> x=np.array([[22,12,43],[53,66,44]], order='F')
+>>> y=x.copy()
+>>> print (x)
+[[22 12 43]
+ [53 66 44]]
+>>> print(y)
+[[22 12 43]
+ [53 66 44]]
+
+# identity Funktion (erzeugen von nxn Arrays)
+>>> x= np.identity(4)
+>>> print(x)
+[[ 1.  0.  0.  0.]
+ [ 0.  1.  0.  0.]
+ [ 0.  0.  1.  0.]
+ [ 0.  0.  0.  1.]]
+
+# eye Funktion eye(N,M=None,k=0, dtype=float)
+>>> np.eye(5,8,k=1,dtype=int)
+array([[0, 1, 0, 0, 0, 0, 0, 0],
+       [0, 0, 1, 0, 0, 0, 0, 0],
+       [0, 0, 0, 1, 0, 0, 0, 0],
+       [0, 0, 0, 0, 1, 0, 0, 0],
+       [0, 0, 0, 0, 0, 1, 0, 0]])
+
+       
+#Kapitel 2      
+#dtype       
+       
+dt = np.dtype([('country', 'S20'), ('density', 'i4'), ('area', 'i4'), ('population','i4')])
+x = np.array([('Netherlands', 393, 41526, 16928800),
+('Belgium', 337, 30510, 11007020),
+('United Kingdom', 256, 243610, 62262000),
+('Germany', 233, 357021, 81799600),
+('Liechtenstein', 205, 160, 32842),
+('Italy', 192, 301230, 59715625),
+('Switzerland', 177, 41290, 7301994),
+('Luxembourg', 173, 2586, 512000),
+('France', 111, 547030, 63601002),
+('Austria', 97, 83858, 8169929),
+('Greece', 81, 131940, 11606813),
+('Ireland', 65, 70280, 4581269),
+('Sweden', 20, 449964, 9515744),
+('Finland', 16, 338424, 5410233),
+('Norway', 13, 385252, 5033675)],
+             dtype=dt)
+print(x[:4])
+
+[(b'Netherlands', 393, 41526, 16928800) (b'Belgium', 337, 30510, 11007020)
+ (b'United Kingdom', 256, 243610, 62262000)
+ (b'Germany', 233, 357021, 81799600)]
